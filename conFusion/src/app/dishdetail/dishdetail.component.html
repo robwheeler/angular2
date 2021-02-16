@@ -6,8 +6,8 @@
     fxLayoutGap="10px"
     fxLayoutGap.xs="0">
 
-  <div fxFlex="40">
-    <div fxFlex ngif="dish">
+  <div fxFlex="40" *ngIf="dish">
+    <div fxFlex>
       <mat-card>
         <mat-card-header>
           <mat-card-title>
