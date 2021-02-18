@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Params, ActivatedRoute} from '@angular/router';
 import { Location } from '@angular/common';
 import { Dish } from '../shared/dish';
@@ -24,6 +24,7 @@ export class DishdetailComponent implements OnInit {
   @ViewChild('cform') commentFormDirective;
 
   constructor(private dishService: DishService,
+    @Inject('BaseURL') private BaseURL,
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private location: Location) {

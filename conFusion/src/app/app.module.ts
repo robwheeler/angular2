@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -36,6 +37,8 @@ import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
 
+import { baseURL } from './shared/baseurl';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +52,7 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
+    HttpClientModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -72,7 +76,8 @@ import { LoginComponent } from './login/login.component';
   providers: [
     DishService,
     LeaderService,
-    PromotionService
+    PromotionService,
+    {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
     LoginComponent
