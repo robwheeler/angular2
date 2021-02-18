@@ -14,8 +14,11 @@ import { LeaderService } from '../services/leader.service';
 export class HomeComponent implements OnInit {
 
   dish: Dish;
+  dishErrMsg: string;
   promotion: Promotion;
+  promotionErrMsg: string;
   leader: Leader;
+  leaderErrMsg: string;
 
   constructor(private dishService: DishService,
     @Inject('BaseURL') private BaseURL,
@@ -23,9 +26,12 @@ export class HomeComponent implements OnInit {
     private promotionService: PromotionService) { }
 
   ngOnInit() {
-    this.dishService.getFeaturedDish().subscribe(dish => this.dish = dish);
-    this.promotionService.getFeaturedPromotion().subscribe(promotion => this.promotion = promotion);
-    this.leaderService.getFeaturedLeader().subscribe(leader => this.leader = leader);
+    this.dishService.getFeaturedDish().subscribe(dish => this.dish = dish,
+      errMsg => this.dishErrMsg = <any>errMsg);
+    this.promotionService.getFeaturedPromotion().subscribe(promotion => this.promotion = promotion,
+      errMsg => this.promotionErrMsg = <any>errMsg);
+    this.leaderService.getFeaturedLeader().subscribe(leader => this.leader = leader,
+      errMsg => this.leaderErrMsg = <any>errMsg);
   }
 
 }
