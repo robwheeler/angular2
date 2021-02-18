@@ -36,6 +36,7 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { FeedbackService } from './services/feedback.service';
 import { LoginComponent } from './login/login.component';
 
 import { baseURL } from './shared/baseurl';
@@ -78,6 +79,7 @@ import { HighlightDirective } from './directives/highlight.directive';
   ],
   providers: [
     DishService,
+    FeedbackService,
     LeaderService,
     PromotionService,
     ProcessHTTPMsgService,
